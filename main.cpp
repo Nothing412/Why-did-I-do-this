@@ -125,10 +125,13 @@ int main()
 	window.setView(view);
 	//window.draw(path1);
 	//window.draw(house);
-	obstacle pooop(1,Vector2f(0,0),window);
-	obstacle poooop(2,Vector2f(200,100),window);
-	obstacle pooooop(3,Vector2f(400,200),window);
-	obstacle pooooooop(4,Vector2f(800,300),window);
+	// draw obstacles there
+	obstacle obstac(1,Vector2f(0,0),window);
+	obstacle obstac2(2,Vector2f(300,0),window);
+	obstacle obstac3(3,Vector2f(600,0),window);
+	obstacle obstac4(4,Vector2f(1200,0),window);
+	obstacle obstac5(5,Vector2f(1500,0),window);
+	obstacle obstac6(6,Vector2f(1800,0),window);
 	window.draw(player);
 	window.display();
 	}
