@@ -22,7 +22,6 @@ int main()
 	path1.setTexture(sprite_map_1);
 	path1.setScale(Vector2f(1000,1000));
 	path1.setTextureRect(IntRect(3,0,22,22));
-	obstacle pooop(1,Vector2f(69,69),window);
 	Sprite player;
 	Texture playerTexture;
 	if(!playerTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png")){
@@ -127,6 +126,7 @@ int main()
 	//window.draw(path1);
 	window.draw(player);
 	//window.draw(house);
+	obstacle pooop(1,Vector2f(69,69),window);
 	window.display();
 	}
 	return 0;

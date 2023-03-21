@@ -36,9 +36,7 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setTexture(texture);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.clear();
         window.draw(obstacle69);
-        window.display();
         break;
     }
 }
