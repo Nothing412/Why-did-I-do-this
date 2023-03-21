@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-	RenderWindow window(VideoMode(800,800),"SK 69", Style::Fullscreen);
+	RenderWindow window(VideoMode(800,800),"Cat woodcutter", Style::Fullscreen);
 	window.setFramerateLimit(60);
 	Sprite path1;
 	Texture sprite_map_1;
@@ -126,7 +126,7 @@ int main()
 	//window.draw(path1);
 	window.draw(player);
 	//window.draw(house);
-	obstacle pooop(1,Vector2f(69,69),window);
+	obstacle pooop(3,Vector2f(0,0) + pooop.getScale(),window);
 	window.display();
 	}
 	return 0;
