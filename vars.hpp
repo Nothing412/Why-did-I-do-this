@@ -30,7 +30,7 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
     switch (type)
     {
     case 1:
-        ntts = IntRect(3,0,22,22);
+        ntts = IntRect(3,0,23,22);
         if(!texture.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
             cout << "Never gonna give you up";
         }
@@ -42,7 +42,7 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
     break;
 
     case 2:
-        ntts = IntRect(23,0,22,22);
+        ntts = IntRect(23,0,23,22);
         if(!texture.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
             cout << "Never gonna give you up";
         }
@@ -54,7 +54,7 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
     break;
 
     case 3:
-        ntts = IntRect(3,22,22,23);
+        ntts = IntRect(3,22,23,23);
         if(!texture.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
             cout << "Never gonna give you up";
         }
@@ -66,7 +66,7 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
     break;
 
     case 4:
-        ntts = IntRect(22,22,22,22);
+        ntts = IntRect(22,22,23,23);
         if(!texture.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
             cout << "Never gonna give you up";
         }

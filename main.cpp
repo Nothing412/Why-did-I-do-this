@@ -124,9 +124,12 @@ int main()
 	window.clear();
 	window.setView(view);
 	//window.draw(path1);
-	window.draw(player);
 	//window.draw(house);
-	obstacle pooop(3,Vector2f(0,0) + pooop.getScale(),window);
+	obstacle pooop(1,Vector2f(0,0),window);
+	obstacle poooop(2,Vector2f(200,100),window);
+	obstacle pooooop(3,Vector2f(400,200),window);
+	obstacle pooooooop(4,Vector2f(800,300),window);
+	window.draw(player);
 	window.display();
 	}
 	return 0;
