@@ -126,12 +126,7 @@ int main()
 	//window.draw(path1);
 	//window.draw(house);
 	// draw obstacles there
-	obstacle obstac(1,Vector2f(0,0),window);
-	obstacle obstac2(2,Vector2f(300,0),window);
-	obstacle obstac3(3,Vector2f(600,0),window);
-	obstacle obstac4(4,Vector2f(1200,0),window);
-	obstacle obstac5(5,Vector2f(1500,0),window);
-	obstacle obstac6(6,Vector2f(1800,0),window);
+	obstacle sassy_bakma(15,Vector2f(69,69),window);
 	window.draw(player);
 	window.display();
 	}
