@@ -24,6 +24,9 @@ public:
     Sprite obstacle69;
     IntRect ntts;
     Vector2f getScale();
+    FloatRect intersec(){
+        return obstacle69.getGlobalBounds();
+    }
 };
 
 obstacle::obstacle(int type , Vector2f position,RenderWindow &window){

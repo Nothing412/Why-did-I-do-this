@@ -18,6 +18,8 @@ int main(){
 	}
 	Image icon;
 	icon.loadFromFile("icon.png");
+	RectangleShape sgg(Vector2f(22,22));
+	sgg.setPosition(Vector2f(44,44));
 	window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());
 	path1.setTexture(sprite_map_1);
 	path1.setScale(Vector2f(1000,1000));
@@ -41,13 +43,15 @@ int main(){
 		cout << "Error house texture map\n";
 	}
 	Sprite path2;
+	float ss  = 20; 
 	path2.setTexture(sprite_map_1);
-	path2.setTextureRect(IntRect(10,10,30,30));
+	path2.setTextureRect(IntRect(10,10,ss,30));
 
 	bool if_inside = false;
 	bool center = true, left = false, right = false, up = false, down = false; 
 	int left_anim = 0, right_anim = 0, up_anim = 0, down_anim = 0;
-	View view(Vector2f(player.getPosition().x+10,player.getPosition().y-10), Vector2f(window.getSize())); 
+	View view(Vector2f(player.getPosition().x+10,player.getPosition().y-10), Vector2f(window.getSize()));
+
 	//1=5
 	while(window.isOpen()){
 		Event event;
@@ -85,35 +89,35 @@ int main(){
 		//kill me
 		//p1
 		if (left == true){
-			player.setTextureRect(IntRect(10, 106, 30, 30));
+			player.setTextureRect(IntRect(10, 106,ss, 30));
 			left_anim++;
 		}
 		//p2
 		else if (right == true){
-			player.setTextureRect(IntRect(10, 154, 30, 30));
+			player.setTextureRect(IntRect(10, 154, ss, 30));
 			
 			right_anim++;
 		}
 		//p3
 		else if (up == true){
-			player.setTextureRect(IntRect(10, 57, 30, 30));
+			player.setTextureRect(IntRect(10, 57, ss, 30));
 			up_anim++;
 		}
 		//p4
 		else if (down == true){
-			player.setTextureRect(IntRect(10, 10, 30, 30));
+			player.setTextureRect(IntRect(10, 10, ss, 30));
 			down_anim++;
 		}
 		//nom
 
 		else if(Mouse::isButtonPressed(Mouse::Left)){
 			player.setTexture(playerTextureAxe);
-			player.setTextureRect(IntRect(10,251,30,30));
+			player.setTextureRect(IntRect(10,251,ss,30));
 		}
 
 		else{
 			center = true;
-			player.setTextureRect(IntRect(10,10,30,30));
+			player.setTextureRect(IntRect(10,10,ss,30));
 			player.setTexture(playerTexture);
 		}	
 	//house nothing here for now
@@ -127,7 +131,11 @@ int main(){
 	house house21(Vector2f(202,42),window);
 	house21.getInside();
 	obstacle sassy_bakma(15,Vector2f(69,69),window);
+	window.draw(sgg);
 	window.draw(player);
+	if(player.getGlobalBounds().intersects(sassy_bakma.intersec())){
+		cout << "sussy baka";
+	}
 	window.display();
 	}
 	return 0;
