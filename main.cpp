@@ -2,13 +2,13 @@
 #include<SFML\Graphics.hpp>
 #include<SFML\Window.hpp>
 #include"vars.hpp"
+#include"house.h"
 #include<SFML\System.hpp>
 #include<vector>
 using namespace sf;
 using namespace std;
 
-int main()
-{
+int main(){
 	RenderWindow window(VideoMode(800,800),"Cat woodcutter", Style::Fullscreen);
 	window.setFramerateLimit(60);
 	Sprite path1;
@@ -44,8 +44,6 @@ int main()
 	path2.setTexture(sprite_map_1);
 	path2.setTextureRect(IntRect(10,10,30,30));
 
-	Sprite house;
-	house.setTexture(houseTextureMap);
 	bool if_inside = false;
 	bool center = true, left = false, right = false, up = false, down = false; 
 	int left_anim = 0, right_anim = 0, up_anim = 0, down_anim = 0;
@@ -117,7 +115,7 @@ int main()
 			center = true;
 			player.setTextureRect(IntRect(10,10,30,30));
 			player.setTexture(playerTexture);
-		}
+		}	
 	//house nothing here for now
 
 	view.setCenter(Vector2f(player.getPosition().x +10,player.getPosition().y - 10));
@@ -126,6 +124,8 @@ int main()
 	//window.draw(path1);
 	//window.draw(house);
 	// draw obstacles there
+	house house21(Vector2f(202,42),window);
+	house21.getInside();
 	obstacle sassy_bakma(15,Vector2f(69,69),window);
 	window.draw(player);
 	window.display();
