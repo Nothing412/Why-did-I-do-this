@@ -18,8 +18,7 @@ int main(){
 	}
 	Image icon;
 	icon.loadFromFile("icon.png");
-	RectangleShape sgg(Vector2f(22,22));
-	sgg.setPosition(Vector2f(44,44));
+
 	window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());
 	path1.setTexture(sprite_map_1);
 	path1.setScale(Vector2f(1000,1000));
@@ -51,6 +50,7 @@ int main(){
 	bool center = true, left = false, right = false, up = false, down = false; 
 	int left_anim = 0, right_anim = 0, up_anim = 0, down_anim = 0;
 	View view(Vector2f(player.getPosition().x+10,player.getPosition().y-10), Vector2f(window.getSize()));
+	bool can_move = true;
 
 	//1=5
 	while(window.isOpen()){
@@ -62,22 +62,22 @@ int main(){
 	}
 	dt = clock.restart().asSeconds();  
 
-		if (Keyboard::isKeyPressed(Keyboard::A)) {
+		if (Keyboard::isKeyPressed(Keyboard::A) && can_move) {
 			player.move(-500 * dt, 0);
 			left = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::D)){
+		else if (Keyboard::isKeyPressed(Keyboard::D) && can_move	){
 			player.move(500 * dt, 0);
 			right = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::W)){
+		else if (Keyboard::isKeyPressed(Keyboard::W) && can_move){
 			player.move(0, -500 * dt);
 			up = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::S)){
+		else if (Keyboard::isKeyPressed(Keyboard::S) && can_move){
 			player.move(0, 500 * dt);
 			down = true;
 		}
@@ -128,14 +128,10 @@ int main(){
 	//window.draw(path1);
 	//window.draw(house);
 	// draw obstacles there
-	house house21(Vector2f(202,42),window);
+	house house21(Vector2f(-460,-439)+house21.getScale(),window,player);
 	house21.getInside();
-	obstacle sassy_bakma(15,Vector2f(69,69),window);
-	window.draw(sgg);
+	obstacle sassy_bakma(15,Vector2f(0,0),window);
 	window.draw(player);
-	if(player.getGlobalBounds().intersects(sassy_bakma.intersec())){
-		cout << "sussy baka";
-	}
 	window.display();
 	}
 	return 0;

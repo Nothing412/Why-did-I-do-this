@@ -8,11 +8,12 @@ using namespace std;
 
 class house{
 public:
-    house(Vector2f p_position, RenderWindow &window);
+    house(Vector2f p_position, RenderWindow &window,Sprite &player);
     Vector2f position;
     Sprite house69;
     Texture houseTextureMap;
-    bool is_inside = false;
+    IntRect sass;
+    bool is_inside = true;
     bool if_inside(){
         return is_inside;
     }
@@ -26,18 +27,24 @@ public:
         }
 
     }
+    Vector2f getScale(){
+        return house69.getScale() + Vector2f(house69.getTextureRect().width,house69.getTextureRect().height);
+    }
 };
 
-house::house(Vector2f p_position, RenderWindow &window){
+house::house(Vector2f p_position, RenderWindow &window,Sprite &player){
     position = p_position;
-    if(!houseTextureMap.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png")){
+    if(!houseTextureMap.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House 2.png")){
         cout << "Sussy baka\n";
     }
     house69.setTexture(houseTextureMap);
     house69.setPosition(position);
     house69.setScale(12,12);
     if(is_inside){
-        cout << "you k";
+        sass = IntRect(0,0,26,50);
+        house69.setTextureRect(sass);
+        house69.setScale(30 ,20);
+        player.setScale(13,17);
+        window.draw(house69);
     }
-    window.draw(house69);
 }
