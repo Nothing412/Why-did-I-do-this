@@ -127,6 +127,9 @@ int main(){
 	house21.getInside();
 	window.draw(player);
 	obstacle path1(17,Vector2f(0,590),window);
+	obstacle path2(16,Vector2f(-165,590),window);
+	obstacle path3(18,Vector2f(-125,590),window);
+	
 	if(player.getGlobalBounds().intersects(house21.intersec())){
 		if(player.getPosition().y >= 50){
 			player.setPosition(player.getPosition().x,50);
