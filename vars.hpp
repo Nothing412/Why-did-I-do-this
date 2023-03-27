@@ -211,6 +211,29 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setTextureRect(ntts);
         window.draw(obstacle69);
     break;
+    case 16:
+        ntts = IntRect(3,15,23,22);
+        if(!texture.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
+            cout << "Never gonna give you up\n";
+        }
+        obstacle69.setTexture(texture);
+        obstacle69.setPosition(position);
+        obstacle69.setScale(7,7);
+        obstacle69.setTextureRect(ntts);
+        window.draw(obstacle69);
+    break;
+    case 17:
+        ntts = IntRect(22,15,23,22);
+        if(!texture.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
+            cout << "Never gonna give you up\n";
+        }
+        obstacle69.setTexture(texture);
+        obstacle69.setPosition(position);
+        obstacle69.setScale(7,7);
+        obstacle69.setTextureRect(ntts);
+        window.draw(obstacle69);
+    break;
+
     }
 }
 

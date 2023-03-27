@@ -11,7 +11,6 @@ using namespace std;
 int main(){
 	RenderWindow window(VideoMode(800,800),"Cat woodcutter", Style::Fullscreen);
 	window.setFramerateLimit(60);
-	Sprite path1;
 	Texture sprite_map_1;
 	if(!sprite_map_1.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
 		cout << "Erorr sprite map 1\n";
@@ -20,9 +19,7 @@ int main(){
 	icon.loadFromFile("icon.png");
 
 	window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());
-	path1.setTexture(sprite_map_1);
-	path1.setScale(Vector2f(1000,1000));
-	path1.setTextureRect(IntRect(3,0,22,22));
+	
 	Sprite player;
 	Texture playerTexture;
 	if(!playerTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png")){
@@ -41,10 +38,8 @@ int main(){
 	if(!houseTextureMap.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png")){
 		cout << "Error house texture map\n";
 	}
-	Sprite path2;
+
 	float ss  = 20; 
-	path2.setTexture(sprite_map_1);
-	path2.setTextureRect(IntRect(10,10,ss,30));
 
 	bool if_inside = false;
 	bool center = true, left = false, right = false, up = false, down = false; 
@@ -62,22 +57,22 @@ int main(){
 	}
 	dt = clock.restart().asSeconds();  
 
-		if (Keyboard::isKeyPressed(Keyboard::A) && can_move) {
+		if (Keyboard::isKeyPressed(Keyboard::A) && can_move == true) {
 			player.move(-500 * dt, 0);
 			left = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::D) && can_move	){
+		else if (Keyboard::isKeyPressed(Keyboard::D) && can_move == true){
 			player.move(500 * dt, 0);
 			right = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::W) && can_move){
+		else if (Keyboard::isKeyPressed(Keyboard::W) && can_move == true){
 			player.move(0, -500 * dt);
 			up = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::S) && can_move){
+		else if (Keyboard::isKeyPressed(Keyboard::S) && can_move ==	 true){
 			player.move(0, 500 * dt);
 			down = true;
 		}
@@ -123,15 +118,38 @@ int main(){
 	//house nothing here for now
 
 	view.setCenter(Vector2f(player.getPosition().x +10,player.getPosition().y - 10));
-	window.clear();
+	window.clear(Color::Cyan);
 	window.setView(view);
 	//window.draw(path1);
 	//window.draw(house);
 	// draw obstacles there
 	house house21(Vector2f(-460,-439)+house21.getScale(),window,player);
 	house21.getInside();
-	obstacle sassy_bakma(15,Vector2f(0,0),window);
 	window.draw(player);
+	obstacle path1(17,Vector2f(0,590),window);
+	if(player.getGlobalBounds().intersects(house21.intersec())){
+		if(player.getPosition().y >= 50){
+			player.setPosition(player.getPosition().x,50);
+		}
+
+		else if(player.getPosition().y <= -200){
+			player.setPosition(player.getPosition().x,-200);
+		}
+
+		else if(player.getPosition().x >= 20){
+			player.setPosition(Vector2f(20,player.getPosition().y));
+		}
+
+		else if(player.getPosition().x <= -350){
+			player.setPosition(Vector2f(-350,player.getPosition().y));
+		}
+
+		if(Keyboard::isKeyPressed(Keyboard::E)){
+			player.setPosition(player.getPosition().x,680);
+		}
+
+	}
+
 	window.display();
 	}
 	return 0;

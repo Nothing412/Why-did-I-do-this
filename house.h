@@ -30,6 +30,10 @@ public:
     Vector2f getScale(){
         return house69.getScale() + Vector2f(house69.getTextureRect().width,house69.getTextureRect().height);
     }
+
+    FloatRect intersec(){
+        return house69.getGlobalBounds();
+    }
 };
 
 house::house(Vector2f p_position, RenderWindow &window,Sprite &player){
@@ -41,10 +45,10 @@ house::house(Vector2f p_position, RenderWindow &window,Sprite &player){
     house69.setPosition(position);
     house69.setScale(12,12);
     if(is_inside){
-        sass = IntRect(0,0,26,50);
+        sass = IntRect(26,0,26,50);
         house69.setTextureRect(sass);
         house69.setScale(30 ,20);
-        player.setScale(13,17);
+        player.setScale(13,13);
         window.draw(house69);
     }
 }
