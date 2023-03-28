@@ -1,8 +1,8 @@
 #pragma once
 #include<iostream>
-#include<SFML\Graphics.hpp>
-#include<SFML\Window.hpp>
-#include<SFML\System.hpp>
+#include<SFML/Graphics.hpp>
+#include<SFML/Window.hpp>
+#include<SFML/System.hpp>
 using namespace sf;
 using namespace std;
 //this file is for variblus

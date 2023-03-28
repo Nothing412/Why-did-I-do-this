@@ -1,14 +1,14 @@
 #pragma once
 #include<iostream>
-#include<SFML\Graphics.hpp>
-#include<SFML\Window.hpp>
-#include<SFML\System.hpp>
+#include<SFML/Graphics.hpp>
+#include<SFML/Window.hpp>
+#include<SFML/System.hpp>
 using namespace sf;
 using namespace std;
 
 class house{
 public:
-    house(Vector2f p_position, RenderWindow &window,Sprite &player);
+    house(Vector2f p_position, RenderWindow &window);
     Vector2f position;
     Sprite house69;
     Texture houseTextureMap;
@@ -36,7 +36,7 @@ public:
     }
 };
 
-house::house(Vector2f p_position, RenderWindow &window,Sprite &player){
+house::house(Vector2f p_position, RenderWindow &window){
     position = p_position;
     if(!houseTextureMap.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House 2.png")){
         cout << "Sussy baka\n";
@@ -48,7 +48,6 @@ house::house(Vector2f p_position, RenderWindow &window,Sprite &player){
         sass = IntRect(26,0,26,50);
         house69.setTextureRect(sass);
         house69.setScale(30 ,20);
-        player.setScale(13,13);
         window.draw(house69);
     }
 }

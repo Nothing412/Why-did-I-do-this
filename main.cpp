@@ -1,9 +1,9 @@
 #include<iostream>
-#include<SFML\Graphics.hpp>
-#include<SFML\Window.hpp>
+#include<SFML/Graphics.hpp>
+#include<SFML/Window.hpp>
 #include"vars.hpp"
 #include"house.h"
-#include<SFML\System.hpp>
+#include<SFML/System.hpp>
 #include<vector>
 using namespace sf;
 using namespace std;
@@ -123,12 +123,26 @@ int main(){
 	//window.draw(path1);
 	//window.draw(house);
 	// draw obstacles there
-	house house21(Vector2f(-460,-439)+house21.getScale(),window,player);
+	house house21(Vector2f(-460,-439)+house21.getScale(),window);
 	house21.getInside();
-	window.draw(player);
+
 	obstacle path1(17,Vector2f(0,590),window);
 	obstacle path2(16,Vector2f(-165,590),window);
 	obstacle path3(18,Vector2f(-125,590),window);
+
+	obstacle path4(17,Vector2f(0,690),window);
+	obstacle path5(16,Vector2f(-165,690),window);
+	obstacle path6(18,Vector2f(-125,690),window);
+
+	obstacle path7(17,Vector2f(0,790),window);
+	obstacle path8(16,Vector2f(-165,790),window);
+	obstacle path9(18,Vector2f(-125,790),window);
+
+	obstacle path10(17,Vector2f(0,890),window);
+	obstacle path11(4,Vector2f(0,990), window);
+	obstacle path12(18,Vector2f(-125,890),window);
+
+	window.draw(player);
 	
 	if(player.getGlobalBounds().intersects(house21.intersec())){
 		if(player.getPosition().y >= 50){
