@@ -170,31 +170,31 @@ int main(){
 
 	
 	//ssassert
-	obstacle path22(17,Vector2f(-1080,1251),window);
-	path14.setRotation(270);	
+	obstacle path22(17,Vector2f(-980,1051),window);
+	path22.setRotation(270);	
 	
-	obstacle path23(16,Vector2f(-380,1151),window);
-	path15.setRotation(270);
+	obstacle path23(17,Vector2f(-380,1051),window);
+	path23.setRotation(270);
 	
-	obstacle path24(16,Vector2f(-480,1151),window);
-	path16.setRotation(270);
+	obstacle path24(17,Vector2f(-480,1051),window);
+	path24.setRotation(270);
 	
-	obstacle path25(16,Vector2f(-580,1151),window);
-	path17.setRotation(270);	
+	obstacle path25(17,Vector2f(-580,1051),window);
+	path25.setRotation(270);	
 	
-	obstacle path26(16,Vector2f(-680,1151),window);
-	path18.setRotation(270);	
+	obstacle path26(17,Vector2f(-680,1051),window);
+	path26.setRotation(270);	
 	
-	obstacle path27(16,Vector2f(-780,1151),window);
-	path19.setRotation(270);	
+	obstacle path27(17,Vector2f(-780,1051),window);
+	path27.setRotation(270);	
 	
-	obstacle path28(16,Vector2f(-880,1151),window);
-	path20.setRotation(270);	
+	obstacle path28(17,Vector2f(-880,1051),window);
+	path28.setRotation(270);	
 	
-	obstacle path29(16,Vector2f(-980,1151),window);
-	path21.setRotation(270);	
+	obstacle path29(17,Vector2f(-280,1051),window);
+	path29.setRotation(270);	
 	
-	//obstacle ☻
+	//obstacle ☻	
 
 	path1.draw(window);
 	path2.draw(window);
@@ -218,6 +218,13 @@ int main(){
 	path20.draw(window);
 	path21.draw(window);
 	path22.draw(window);
+	path23.draw(window);
+	path24.draw(window);
+	path25.draw(window);
+	path26.draw(window);
+	path27.draw(window);
+	path28.draw(window);
+	path29.draw(window);
 
 	
 
