@@ -107,7 +107,7 @@ int main(){
 
 		else if(Mouse::isButtonPressed(Mouse::Left)){
 			player.setTexture(playerTextureAxe);
-			player.setTextureRect(IntRect(10,251,ss,30));
+			player.setTextureRect(IntRect(10,251,30,30));
 		}
 
 		else{
@@ -123,9 +123,8 @@ int main(){
 	//window.draw(path1);
 	//window.draw(house);
 	// draw obstacles there
-	house house21(Vector2f(-460,-439)+house21.getScale(),window);
-	house21.getInside();
-
+	house house(Vector2f(-460 + 26,-439 + 70),window);
+	
 	obstacle path1(17,Vector2f(0,590),window);
 	obstacle path2(16,Vector2f(-165,590),window);
 	obstacle path3(18,Vector2f(-125,590),window);
@@ -142,9 +141,89 @@ int main(){
 	obstacle path11(4,Vector2f(0,990), window);
 	obstacle path12(18,Vector2f(-125,890),window);
 
+	obstacle path13(17,Vector2f(0,990),window);
+	path13.setRotation(90);
+
+	obstacle path14(16,Vector2f(-280,1151),window);
+	path14.setRotation(270);	
+	
+	obstacle path15(16,Vector2f(-380,1151),window);
+	path15.setRotation(270);
+	
+	obstacle path16(16,Vector2f(-480,1151),window);
+	path16.setRotation(270);
+	
+	obstacle path17(16,Vector2f(-580,1151),window);
+	path17.setRotation(270);	
+	
+	obstacle path18(16,Vector2f(-680,1151),window);
+	path18.setRotation(270);	
+	
+	obstacle path19(16,Vector2f(-780,1151),window);
+	path19.setRotation(270);	
+	
+	obstacle path20(16,Vector2f(-880,1151),window);
+	path20.setRotation(270);	
+	
+	obstacle path21(16,Vector2f(-980,1151),window);
+	path21.setRotation(270);
+
+	
+	//ssassert
+	obstacle path22(17,Vector2f(-1080,1251),window);
+	path14.setRotation(270);	
+	
+	obstacle path23(16,Vector2f(-380,1151),window);
+	path15.setRotation(270);
+	
+	obstacle path24(16,Vector2f(-480,1151),window);
+	path16.setRotation(270);
+	
+	obstacle path25(16,Vector2f(-580,1151),window);
+	path17.setRotation(270);	
+	
+	obstacle path26(16,Vector2f(-680,1151),window);
+	path18.setRotation(270);	
+	
+	obstacle path27(16,Vector2f(-780,1151),window);
+	path19.setRotation(270);	
+	
+	obstacle path28(16,Vector2f(-880,1151),window);
+	path20.setRotation(270);	
+	
+	obstacle path29(16,Vector2f(-980,1151),window);
+	path21.setRotation(270);	
+	
+	//obstacle ☻
+
+	path1.draw(window);
+	path2.draw(window);
+	path3.draw(window);
+	path4.draw(window);
+	path5.draw(window);
+	path6.draw(window);
+	path7.draw(window);
+	path8.draw(window);
+	path9.draw(window);
+	path10.draw(window);
+	path11.draw(window);
+	path12.draw(window);
+	path13.draw(window);
+	path14.draw(window);
+	path15.draw(window);
+	path16.draw(window);
+	path17.draw(window);
+	path18.draw(window);
+	path19.draw(window);
+	path20.draw(window);
+	path21.draw(window);
+	path22.draw(window);
+
+	
+
 	window.draw(player);
 	
-	if(player.getGlobalBounds().intersects(house21.intersec())){
+	if(player.getGlobalBounds().intersects(house.intersec())){
 		if(player.getPosition().y >= 50){
 			player.setPosition(player.getPosition().x,50);
 		}

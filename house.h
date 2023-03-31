@@ -13,6 +13,7 @@ public:
     Sprite house69;
     Texture houseTextureMap;
     IntRect sass;
+    float angel;
     bool is_inside = true;
     bool if_inside(){
         return is_inside;
@@ -48,6 +49,8 @@ house::house(Vector2f p_position, RenderWindow &window){
         sass = IntRect(26,0,26,50);
         house69.setTextureRect(sass);
         house69.setScale(30 ,20);
+        house69.setRotation(angel);
         window.draw(house69);
     }
 }
+

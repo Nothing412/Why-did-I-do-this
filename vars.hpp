@@ -5,16 +5,7 @@
 #include<SFML/System.hpp>
 using namespace sf;
 using namespace std;
-//this file is for variblus
-/*bool can_move = true;
-float playerPositionX;
-float playerPositionY;
-//Sprite mat texture 1
-Texture sprite_map_1;*/
-//scale  = x=6,y=6
-//formula origin pos.x + size.x
-//size = 22,22
-//pos = 3,0 tof row
+
 class obstacle{
 private:
     /* data */
@@ -27,9 +18,15 @@ public:
     FloatRect intersec(){
         return obstacle69.getGlobalBounds();
     }
+    float angel = 0;
+    void setRotation(float p_angel);
+    void draw(RenderWindow &window){
+        window.draw(obstacle69);
+    }
 };
 
 obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
+    obstacle69.setRotation(angel);
     switch (type)
     {
     case 1:
@@ -41,7 +38,7 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);   
     break;
 
     case 2:
@@ -53,7 +50,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 3:
@@ -65,7 +63,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 4:
@@ -77,7 +76,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 5:
@@ -89,7 +89,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 6:
@@ -101,7 +102,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;  
 
     case 7:
@@ -113,7 +115,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;  
 
     case 8:
@@ -125,7 +128,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 9:
@@ -137,7 +141,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 10:
@@ -149,7 +154,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 11:
@@ -160,8 +166,9 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setTexture(texture);
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
+        obstacle69.setRotation(angel);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        
     break;
 
     case 12:
@@ -173,7 +180,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 13:
@@ -184,8 +192,9 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setTexture(texture);
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
+        obstacle69.setRotation(angel);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        
     break;
     
     case 14:
@@ -197,7 +206,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 15:
@@ -209,7 +219,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
     case 16:
         ntts = IntRect(3,15,23,22);
@@ -220,7 +231,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
     case 17:
         ntts = IntRect(22,15,23,22);
@@ -231,7 +243,8 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
         obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setRotation(angel);
+        
     break;
 
     case 18:
@@ -242,8 +255,9 @@ obstacle::obstacle(int type , Vector2f position,RenderWindow &window){
         obstacle69.setTexture(texture);
         obstacle69.setPosition(position);
         obstacle69.setScale(7,7);
-        obstacle69.setTextureRect(ntts);
-        window.draw(obstacle69);
+        obstacle69.setTextureRect(ntts);    
+        obstacle69.setRotation(angel);
+        
     break;
 
     }
@@ -253,3 +267,7 @@ Vector2f obstacle::getScale(){
     return obstacle69.getScale();
 }
 
+void obstacle::setRotation(float p_angel){
+    angel = p_angel;
+    obstacle69.setRotation(p_angel);
+}
