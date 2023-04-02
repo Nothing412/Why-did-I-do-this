@@ -5,6 +5,7 @@
 #include"house.h"
 #include<SFML/System.hpp>
 #include<vector>
+#include "fence.h"
 using namespace sf;
 using namespace std;
 
@@ -193,7 +194,9 @@ int main(){
 	
 	obstacle path29(17,Vector2f(-280,1051),window);
 	path29.setRotation(270);	
-	
+
+
+	Fence fence(4,Vector2f(-500,1040),window);
 	//obstacle ☻	
 
 	path1.draw(window);
@@ -226,7 +229,8 @@ int main(){
 	path28.draw(window);
 	path29.draw(window);
 
-	
+ 
+	fence.draw(window);	
 
 	window.draw(player);
 	
