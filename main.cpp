@@ -196,7 +196,7 @@ int main(){
 	path29.setRotation(270);	
 
 
-	Fence fence(4,Vector2f(-500,1040),window);
+	Fence fence(14,Vector2f(-500,1040),window);
 	//obstacle ☻	
 
 	path1.draw(window);
