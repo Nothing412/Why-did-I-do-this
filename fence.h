@@ -20,7 +20,7 @@ public:
         return fence69.getGlobalBounds();
     }
 
-    void setRotate(float angle){
+    void setRotation(float angle){
         fence69.setRotation(angle);
     }
 };
