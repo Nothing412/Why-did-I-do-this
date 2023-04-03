@@ -16,6 +16,13 @@ public:
     Texture texture69;
     IntRect rect69;
     void draw(RenderWindow &window);
+    FloatRect intersec(){
+        return fence69.getGlobalBounds();
+    }
+
+    void setRotate(float angle){
+        fence69.setRotation(angle);
+    }
 };
 
 Fence::Fence(int type, Vector2f position,RenderWindow  &window){
@@ -59,7 +66,117 @@ Fence::Fence(int type, Vector2f position,RenderWindow  &window){
         }
         fence69.setTexture(texture69);
         fence69.setPosition(position);
-        rect69 = IntRect(15,0,15,35);
+        rect69 = IntRect(15,0,15,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 5:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(31,0,18,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 6:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(45,0,15,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 7:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(15,15,15,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 8:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(31,15,18,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 9:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(45,15,15,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 10:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(15,15,15,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 11:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(45,30,15,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 12:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(15,45,15,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 13:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(31,45,18,15);
+        fence69.setTextureRect(rect69);
+        fence69.setScale(10,10);
+    break;
+
+    case 14:
+        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png")){
+            cout << "Error loading texture 69\n";
+        }
+        fence69.setTexture(texture69);
+        fence69.setPosition(position);
+        rect69 = IntRect(45,45,15,15);
         fence69.setTextureRect(rect69);
         fence69.setScale(10,10);
     break;
