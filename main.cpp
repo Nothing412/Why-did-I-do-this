@@ -1,11 +1,15 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
+#include"include/json/value.h"
+#include"include/json/json.h"
 #include<SFML/Window.hpp>
 #include"vars.hpp"
 #include"house.h"
 #include<SFML/System.hpp>
 #include<vector>
-#include "fence.h"
+#include"fence.h"
+#include<fstream>
+#include<string>
 using namespace sf;
 using namespace std;
 
@@ -40,7 +44,7 @@ int main(){
 		cout << "Error house texture map\n";
 	}
 
-	float ss  = 20; 
+	float ss  = 21; 
 
 	bool if_inside = false;
 	bool center = true, left = false, right = false, up = false, down = false; 
@@ -196,7 +200,7 @@ int main(){
 	path29.setRotation(270);	
 
 
-	Fence fence1(13,Vector2f(-500,1040),window);
+	Fence fence1(1,Vector2f(-1050,800),window);
 	//obstacle ☻	
 
 	path1.draw(window);
