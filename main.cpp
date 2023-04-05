@@ -1,7 +1,5 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
-#include"include/json/value.h"
-#include"include/json/json.h"
 #include<SFML/Window.hpp>
 #include"vars.hpp"
 #include"house.h"
@@ -10,23 +8,28 @@
 #include"fence.h"
 #include<fstream>
 #include<string>
+#include"playerData.h"
 using namespace sf;
 using namespace std;
+
 
 int main(){
 	RenderWindow window(VideoMode(800,800),"Cat woodcutter", Style::Fullscreen);
 	window.setFramerateLimit(60);
 	Texture sprite_map_1;
 	if(!sprite_map_1.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
-		cout << "Erorr sprite map 1\n";
 	}
+		cout << "Erorr sprite map 1\n";
 	Image icon;
 	icon.loadFromFile("icon.png");
 
-	window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());
-	
+	window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());	
+
 	Sprite player;
 	Texture playerTexture;
+	
+
+
 	if(!playerTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png")){
 		cout << "Axe textureure failure";
 	}
@@ -80,6 +83,7 @@ int main(){
 		else if (Keyboard::isKeyPressed(Keyboard::S) && can_move ==	 true){
 			player.move(0, 500 * dt);
 			down = true;
+
 		}
 
 		else{
@@ -119,6 +123,10 @@ int main(){
 			center = true;
 			player.setTextureRect(IntRect(10,10,ss,30));
 			player.setTexture(playerTexture);
+		}
+
+		if(Keyboard::isKeyPressed(Keyboard::Escape)){
+			cout << "Saving data..." << endl;
 		}	
 	//house nothing here for now
 

@@ -4,8 +4,6 @@
 #include"vars.hpp"
 #include"house.h"
 #include<SFML/System.hpp>
-#include"include/json/value.h"
-#include"include/json/json.h"
 #include<fstream>
 #include<string>
 #include<vector>

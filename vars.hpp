@@ -3,8 +3,6 @@
 #include<SFML/Graphics.hpp>
 #include<SFML/Window.hpp>
 #include<SFML/System.hpp>
-#include"include/json/value.h"
-#include"include/json/json.h"
 #include <fstream>
 #include <string>
 using namespace sf;

@@ -3,8 +3,7 @@
         {
             "name": "windows-gcc-x64",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/dist"
+                "${workspaceFolder}/**"
             ],
             "defines": [
                 "_DEBUG",
