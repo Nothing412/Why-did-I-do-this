@@ -9,6 +9,7 @@
 #include<fstream>
 #include<string>
 #include"playerData.h"
+#include"json/json.h"
 using namespace sf;
 using namespace std;
 
@@ -18,8 +19,8 @@ int main(){
 	window.setFramerateLimit(60);
 	Texture sprite_map_1;
 	if(!sprite_map_1.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png")){
-	}
 		cout << "Erorr sprite map 1\n";
+	}
 	Image icon;
 	icon.loadFromFile("icon.png");
 
@@ -55,6 +56,33 @@ int main(){
 	View view(Vector2f(player.getPosition().x+10,player.getPosition().y-10), Vector2f(window.getSize()));
 	bool can_move = true;
 
+	ifstream file("player_stuff.json");
+	string jsonString;
+    if(!file.is_open()){
+		cout << "error: player_stuff.json\n";
+		return 1;
+	}
+
+    file.seekg(0, ios::end);
+    jsonString.reserve(file.tellg());
+    file.seekg(0, ios::beg);
+    jsonString.assign((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
+    file.close();
+
+	Json::Reader reader;
+	Json::Value root;
+
+	bool parsingSuccessful = reader.parse(jsonString, root);
+    if (!parsingSuccessful){
+        cout << "Failed to parse JSON data." << std::endl;
+        return 1;
+    }
+
+
+
+
+	player.setPosition(Vector2f(root["x"].asFloat(), root["y"].asFloat()));
+
 	//1=5
 	while(window.isOpen()){
 		Event event;
@@ -89,6 +117,8 @@ int main(){
 		else{
 			center = true, left = false, right = false, up = false, down = false;	
 		}
+
+
 
 		//kill me
 		//p1
@@ -126,7 +156,18 @@ int main(){
 		}
 
 		if(Keyboard::isKeyPressed(Keyboard::Escape)){
-			cout << "Saving data..." << endl;
+			root["x"] = player.getPosition().x;
+			root["y"] = player.getPosition().y;
+			Json::FastWriter writer;
+			string jsonString = writer.write(root);
+
+			ofstream file2("player_stuff.json");
+
+			if(file2.is_open()){
+				file2 << jsonString;
+				file2.close();
+			}
+		}
 		}	
 	//house nothing here for now
 
@@ -267,7 +308,6 @@ int main(){
 			player.setPosition(player.getPosition().x,680);
 		}
 
-	}
 
 	window.display();
 	}

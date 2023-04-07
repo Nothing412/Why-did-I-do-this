@@ -42,4 +42,9 @@ void editPlayerData(const PlayerData& playerData){
             }
         }
     }
-};
+}
+
+float to_float(string sus){
+    float return_value = stof(sus);
+    return return_value;
+}
