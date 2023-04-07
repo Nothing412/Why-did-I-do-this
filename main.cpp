@@ -73,10 +73,10 @@ int main(){
 	Json::Value root;
 
 	bool parsingSuccessful = reader.parse(jsonString, root);
-    if (!parsingSuccessful){
-        cout << "Failed to parse JSON data." << std::endl;
-        return 1;
-    }
+    // if (!parsingSuccessful){
+    //     cout << "Failed to parse JSON data." << std::endl;
+    //     return 1;
+    // }
 
 
 
@@ -156,17 +156,17 @@ int main(){
 		}
 
 		if(Keyboard::isKeyPressed(Keyboard::Escape)){
-			root["x"] = player.getPosition().x;
-			root["y"] = player.getPosition().y;
-			Json::FastWriter writer;
-			string jsonString = writer.write(root);
+			// root["x"] = player.getPosition().x;
+			// root["y"] = player.getPosition().y;
+			// Json::FastWriter writer;
+			// string jsonString = writer.write(root);
 
-			ofstream file2("player_stuff.json");
+			// ofstream file2("player_stuff.json");
 
-			if(file2.is_open()){
-				file2 << jsonString;
-				file2.close();
-			}
+			// if(file2.is_open()){
+			// 	file2 << jsonString;
+			// 	file2.close();
+			// }
 		}
 		}	
 	//house nothing here for now
