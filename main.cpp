@@ -230,29 +230,29 @@ int main(){
 
 	window.draw(player);
 	
-	if(player.getGlobalBounds().intersects(house.intersec())){
-		if(player.getPosition().y >= 50){
-			player.setPosition(player.getPosition().x,50);
-		}
+		if(player.getGlobalBounds().intersects(house.intersec())){
+			if(player.getPosition().y >= 50){
+				player.setPosition(player.getPosition().x,50);
+			}
 
-		else if(player.getPosition().y <= -200){
-			player.setPosition(player.getPosition().x,-200);
-		}
+			else if(player.getPosition().y <= -200){
+				player.setPosition(player.getPosition().x,-200);
+			}
 
-		else if(player.getPosition().x >= 20){
-			player.setPosition(Vector2f(20,player.getPosition().y));
-		}
+			else if(player.getPosition().x >= 20){
+				player.setPosition(Vector2f(20,player.getPosition().y));
+			}
 
-		else if(player.getPosition().x <= -350){
-			player.setPosition(Vector2f(-350,player.getPosition().y));
-		}
+			else if(player.getPosition().x <= -350){
+				player.setPosition(Vector2f(-350,player.getPosition().y));
+			}	
 
-		if(Keyboard::isKeyPressed(Keyboard::E)){
-			player.setPosition(player.getPosition().x,680);
-		}
+			if(Keyboard::isKeyPressed(Keyboard::E)){
+				player.setPosition(player.getPosition().x,680);
+			}
 
-	}
-			window.display();
+		}
+		window.display();
 	}
 	return 0;	
 }
