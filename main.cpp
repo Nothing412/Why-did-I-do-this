@@ -9,7 +9,6 @@
 #include<fstream>
 #include<string>
 #include"playerData.h"
-#include"json/json.h"
 using namespace sf;
 using namespace std;
 
@@ -28,16 +27,16 @@ int main(){
 
 	Sprite player;
 	Texture playerTexture;
-	
-
 
 	if(!playerTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png")){
 		cout << "Axe textureure failure";
 	}
+
 	Texture playerTextureAxe;
 	if(!playerTextureAxe.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png")){
 		cout <<"Player Axe texture failure";
 	}
+	
 	Clock clock;
 	float dt;
 	player.setTexture(playerTexture);
@@ -56,10 +55,6 @@ int main(){
 	View view(Vector2f(player.getPosition().x+10,player.getPosition().y-10), Vector2f(window.getSize()));
 	bool can_move = true;
 
-	
-
-
-
 	//1=5
 	while(window.isOpen()){
 		Event event;
@@ -71,28 +66,27 @@ int main(){
 	
 		dt = clock.restart().asSeconds();  
 
-		if (Keyboard::isKeyPressed(Keyboard::A) && can_move == true) {
+		if (Keyboard::isKeyPressed(Keyboard::A)) {
 			player.move(-500 * dt, 0);
 			player.setTexture(playerTexture);
 			player.setTextureRect(IntRect(10, 106,ss, 30));
 			left = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::D) && can_move == true){
+		else if (Keyboard::isKeyPressed(Keyboard::D)){
 			player.move(500 * dt, 0);
 			player.setTexture(playerTexture);
 			player.setTextureRect(IntRect(10, 154, ss, 30));
 			right = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::W) && can_move == true){
+		else if (Keyboard::isKeyPressed(Keyboard::W)){
 			player.move(0, -500 * dt);
 			player.setTexture(playerTexture);
-			player.setTextureRect(IntRect(10, 10, ss, 30));
 			up = true;
 		}
 
-		else if (Keyboard::isKeyPressed(Keyboard::S) && can_move ==	 true){
+		else if (Keyboard::isKeyPressed(Keyboard::S)){
 			player.move(0, 500 * dt);
 			player.setTexture(playerTexture);
 			player.setTextureRect(IntRect(10, 57, ss, 30));
@@ -193,6 +187,10 @@ int main(){
 
 
 	Fence fence1(1,Vector2f(-1050,800),window);
+	Fence fence2(1,Vector2f(-1050,1123),window);
+	Fence fence3(1,Vector2f(-1050,477),window);
+	Fence fence4(1,Vector2f(-1070,1437),window);
+	fence4.setRotation(90);
 	//obstacle ☻	
 
 	path1.draw(window);
@@ -227,6 +225,9 @@ int main(){
 
  
 	fence1.draw(window);	
+	fence2.draw(window);
+	fence3.draw(window);
+	fence4.draw(window);
 
 	window.draw(player);
 	
