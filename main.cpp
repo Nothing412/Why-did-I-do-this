@@ -56,93 +56,49 @@ int main(){
 	View view(Vector2f(player.getPosition().x+10,player.getPosition().y-10), Vector2f(window.getSize()));
 	bool can_move = true;
 
-	ifstream file("player_stuff.json");
-	string jsonString;
-    if(!file.is_open()){
-		cout << "error: player_stuff.json\n";
-		return 1;
-	}
-
-    file.seekg(0, ios::end);
-    jsonString.reserve(file.tellg());
-    file.seekg(0, ios::beg);
-    jsonString.assign((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
-    file.close();
-
-	Json::Reader reader;
-	Json::Value root;
-
-	bool parsingSuccessful = reader.parse(jsonString, root);
-    // if (!parsingSuccessful){
-    //     cout << "Failed to parse JSON data." << std::endl;
-    //     return 1;
-    // }
+	
 
 
-
-
-	player.setPosition(Vector2f(root["x"].asFloat(), root["y"].asFloat()));
 
 	//1=5
 	while(window.isOpen()){
 		Event event;
 		while(window.pollEvent(event)){
-		if(event.type==Event::Closed){
-			window.close();
+			if(event.type==Event::Closed){
+				window.close();
+			}
 		}
-	}
-	dt = clock.restart().asSeconds();  
+	
+		dt = clock.restart().asSeconds();  
 
 		if (Keyboard::isKeyPressed(Keyboard::A) && can_move == true) {
 			player.move(-500 * dt, 0);
+			player.setTexture(playerTexture);
+			player.setTextureRect(IntRect(10, 106,ss, 30));
 			left = true;
 		}
 
 		else if (Keyboard::isKeyPressed(Keyboard::D) && can_move == true){
 			player.move(500 * dt, 0);
+			player.setTexture(playerTexture);
+			player.setTextureRect(IntRect(10, 154, ss, 30));
 			right = true;
 		}
 
 		else if (Keyboard::isKeyPressed(Keyboard::W) && can_move == true){
 			player.move(0, -500 * dt);
+			player.setTexture(playerTexture);
+			player.setTextureRect(IntRect(10, 10, ss, 30));
 			up = true;
 		}
 
 		else if (Keyboard::isKeyPressed(Keyboard::S) && can_move ==	 true){
 			player.move(0, 500 * dt);
+			player.setTexture(playerTexture);
+			player.setTextureRect(IntRect(10, 57, ss, 30));
 			down = true;
 
 		}
-
-		else{
-			center = true, left = false, right = false, up = false, down = false;	
-		}
-
-
-
-		//kill me
-		//p1
-		if (left == true){
-			player.setTextureRect(IntRect(10, 106,ss, 30));
-			left_anim++;
-		}
-		//p2
-		else if (right == true){
-			player.setTextureRect(IntRect(10, 154, ss, 30));
-			
-			right_anim++;
-		}
-		//p3
-		else if (up == true){
-			player.setTextureRect(IntRect(10, 57, ss, 30));
-			up_anim++;
-		}
-		//p4
-		else if (down == true){
-			player.setTextureRect(IntRect(10, 10, ss, 30));
-			down_anim++;
-		}
-		//nom
 
 		else if(Mouse::isButtonPressed(Mouse::Left)){
 			player.setTexture(playerTextureAxe);
@@ -150,25 +106,12 @@ int main(){
 		}
 
 		else{
-			center = true;
-			player.setTextureRect(IntRect(10,10,ss,30));
 			player.setTexture(playerTexture);
+			player.setTextureRect(IntRect(10, 10, ss, 30));	
 		}
 
-		if(Keyboard::isKeyPressed(Keyboard::Escape)){
-			// root["x"] = player.getPosition().x;
-			// root["y"] = player.getPosition().y;
-			// Json::FastWriter writer;
-			// string jsonString = writer.write(root);
+	//nom
 
-			// ofstream file2("player_stuff.json");
-
-			// if(file2.is_open()){
-			// 	file2 << jsonString;
-			// 	file2.close();
-			// }
-		}
-		}	
 	//house nothing here for now
 
 	view.setCenter(Vector2f(player.getPosition().x +10,player.getPosition().y - 10));
@@ -308,8 +251,8 @@ int main(){
 			player.setPosition(player.getPosition().x,680);
 		}
 
-
-	window.display();
 	}
-	return 0;
+			window.display();
+	}
+	return 0;	
 }
