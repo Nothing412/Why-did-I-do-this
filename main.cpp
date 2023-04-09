@@ -37,6 +37,14 @@ int main(){
 		cout <<"Player Axe texture failure";
 	}
 	
+	Texture  mouseTexture;
+	Sprite mouseSprite;
+	if(!mouseTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Objects/mouse.png")){
+		cout << "sus\n";
+	}
+	mouseSprite.setTexture(mouseTexture);
+	mouseSprite.setScale(2,2);
+
 	Clock clock;
 	float dt;
 	player.setTexture(playerTexture);
@@ -49,48 +57,99 @@ int main(){
 
 	float ss  = 21; 
 
-	bool if_inside = false;
-	bool center = true, left = false, right = false, up = false, down = false; 
+	bool if_inside = false; 
 	int left_anim = 0, right_anim = 0, up_anim = 0, down_anim = 0;
 	View view(Vector2f(player.getPosition().x+10,player.getPosition().y-10), Vector2f(window.getSize()));
 	bool can_move = true;
+	Vector2i mousePos;
+	
+	ifstream playerY2;
+	playerY2.open("y.txt");
+	if(!playerY2.is_open()){
+		cout << "Error opening file\n";
+    }
+	string stringy;
+	playerY2 >> stringy;
+	playerY2.close();
+	float y;
+	y = stof(stringy);
 
-	//1=5
+	//oiiiii
+	ifstream playerX2;
+	playerX2.open("x.txt");
+	if(!playerX2.is_open()){
+		cout << "Error opening file\n";
+    }
+	string stringx;
+	playerX2 >> stringx;
+	playerX2.close();
+	float x;
+	x = stof(stringx);
+	
+	Vector2f playerPosition = Vector2f(x,y);
+	player.setPosition(playerPosition);
+	////////////////////////////////////////////////////////////////
+	//here here here here here here here here here here here here //
+	//here here here here here here here here here here here here //
+	//here here here here here here here here here here here here //
+	//here here here here here here here here here here here here //
+	//here here here here here here here here here here here here //
+	////////////////////////////////////////////////////////////////
 	while(window.isOpen()){
 		Event event;
 		while(window.pollEvent(event)){
 			if(event.type==Event::Closed){
 				window.close();
+				//
+			ofstream playerX;
+			playerX.open("x.txt");
+			if(!playerX.is_open()){
+				cout << "Error opening file\n";
+			}
+			playerX << player.getPosition().x;
+			playerX.close();
+
+
+
+			ofstream playerY;
+			playerY.open("y.txt");
+			if(!playerY.is_open()){
+				cout << "Error opening file\n";
+			}
+			playerY << player.getPosition().y;
+			playerY.close();
+				//
 			}
 		}
-	
+
+
+	//noiii
+	//lkkll;
+	//poopo
 		dt = clock.restart().asSeconds();  
+		mousePos = Mouse::getPosition(window);
 
 		if (Keyboard::isKeyPressed(Keyboard::A)) {
 			player.move(-500 * dt, 0);
 			player.setTexture(playerTexture);
 			player.setTextureRect(IntRect(10, 106,ss, 30));
-			left = true;
 		}
 
 		else if (Keyboard::isKeyPressed(Keyboard::D)){
 			player.move(500 * dt, 0);
 			player.setTexture(playerTexture);
 			player.setTextureRect(IntRect(10, 154, ss, 30));
-			right = true;
 		}
 
 		else if (Keyboard::isKeyPressed(Keyboard::W)){
 			player.move(0, -500 * dt);
 			player.setTexture(playerTexture);
-			up = true;
+			player.setTextureRect(IntRect(10, 57, ss, 30));
 		}
 
 		else if (Keyboard::isKeyPressed(Keyboard::S)){
 			player.move(0, 500 * dt);
 			player.setTexture(playerTexture);
-			player.setTextureRect(IntRect(10, 57, ss, 30));
-			down = true;
 
 		}
 
@@ -189,9 +248,23 @@ int main(){
 	Fence fence1(1,Vector2f(-1050,800),window);
 	Fence fence2(1,Vector2f(-1050,1123),window);
 	Fence fence3(1,Vector2f(-1050,477),window);
-	Fence fence4(1,Vector2f(-1070,1437),window);
+	Fence fence4(1,Vector2f(-980,1437),window);
 	fence4.setRotation(90);
+	Fence fence5(1,Vector2f(-1300,1437),window);
+	fence5.setRotation(90);
+	Fence fence6(1,Vector2f(-1800,800),window);
+	Fence fence7(1,Vector2f(-1800,1123),window);
+	Fence fence8(1,Vector2f(-1800,477),window);
+
+	Fence fence9(1,Vector2f(-980,400),window);
+	fence9.setRotation(90);
+	Fence fence10(1,Vector2f(-1300,420),window);
+	fence10.setRotation(90);
 	//obstacle ☻	
+
+
+	
+
 
 	path1.draw(window);
 	path2.draw(window);
@@ -228,7 +301,14 @@ int main(){
 	fence2.draw(window);
 	fence3.draw(window);
 	fence4.draw(window);
+	fence5.draw(window);
+	fence6.draw(window);
+	fence7.draw(window);
+	fence8.draw(window);
+	fence9.draw(window);
+	fence10.draw(window);	
 
+	
 	window.draw(player);
 	
 		if(player.getGlobalBounds().intersects(house.intersec())){
