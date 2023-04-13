@@ -1,18 +1,21 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
 #include<SFML/Window.hpp>
-#include"vars.hpp"
-#include"house.h"
 #include<SFML/System.hpp>
 #include<vector>
-#include"fence.h"
 #include<fstream>
 #include<string>
 #include"playerData.h"
+#include"vars.hpp"
+#include"house.h"
+#include"fence.h"
+#include"tree.h"
+#include"grass.h"
 using namespace sf;
 using namespace std;
 
-
+//if time is = 	day =< 300000 milliseconds
+// 10  == 600000
 int main(){
 	RenderWindow window(VideoMode(800,800),"Cat woodcutter", Style::Fullscreen);
 	window.setFramerateLimit(60);
@@ -26,7 +29,8 @@ int main(){
 	window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());	
 
 	Sprite player;
-	Texture playerTexture;
+	Texture playerTexture;	
+	bool is_day = true;
 
 	if(!playerTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png")){
 		cout << "Axe textureure failure";
@@ -45,6 +49,15 @@ int main(){
 	mouseSprite.setTexture(mouseTexture);
 	mouseSprite.setScale(2,2);
 
+	Texture fenceFarmTexture;
+	Sprite fenceFarm;
+	if(!fenceFarmTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Tree Farm.png")){
+		cout << "Error\n";
+	}
+	fenceFarm.setTexture(fenceFarmTexture);
+	fenceFarm.setScale(Vector2f(20,20));
+	fenceFarm.setPosition(Vector2f(-2178.5,450));
+	
 	Clock clock;
 	float dt;
 	player.setTexture(playerTexture);
@@ -167,12 +180,19 @@ int main(){
 
 	//house nothing here for now
 
+
 	view.setCenter(Vector2f(player.getPosition().x +10,player.getPosition().y - 10));
 	window.clear(Color::Cyan);
+
 	window.setView(view);
 	//window.draw(path1);
 	//window.draw(house);
 	// draw obstacles there
+
+	//cout << "x: " << player.getPosition().x << " y: " << player.getPosition().y << endl;
+
+	
+
 	house house(Vector2f(-460 + 26,-439 + 70),window);
 	
 	obstacle path1(17,Vector2f(0,590),window);
@@ -244,27 +264,33 @@ int main(){
 	obstacle path29(17,Vector2f(-280,1051),window);
 	path29.setRotation(270);	
 
-
-	Fence fence1(1,Vector2f(-1050,800),window);
-	Fence fence2(1,Vector2f(-1050,1123),window);
-	Fence fence3(1,Vector2f(-1050,477),window);
-	Fence fence4(1,Vector2f(-980,1437),window);
-	fence4.setRotation(90);
-	Fence fence5(1,Vector2f(-1300,1437),window);
-	fence5.setRotation(90);
-	Fence fence6(1,Vector2f(-1800,800),window);
-	Fence fence7(1,Vector2f(-1800,1123),window);
-	Fence fence8(1,Vector2f(-1800,477),window);
-
-	Fence fence9(1,Vector2f(-980,400),window);
-	fence9.setRotation(90);
-	Fence fence10(1,Vector2f(-1300,420),window);
-	fence10.setRotation(90);
-	//obstacle ☻	
+	Grass grass1(Vector2f(-1280,800),1);
+	//polly
+	Tree tree1(Vector2f(-1300,800));
+	tree1.treeAlomstBreak(); 	
 
 
-	
+	if(player.getGlobalBounds().intersects(fenceFarm.getGlobalBounds())){
+		
+		if(player.getPosition().x>=-1182){
+			player.setPosition(-1181,player.getPosition().y);
+		}
 
+		if(player.getPosition().x<=-2029.84){
+			player.setPosition(-2028,player.getPosition().y);
+		}
+		if(player.getPosition().y<=625.975){
+			player.setPosition(player.getPosition().x,624);
+		}
+
+		if(player.getPosition().y>=1294.72){
+			player.setPosition(player.getPosition().x,1295);
+		}
+
+		if(Keyboard::isKeyPressed(Keyboard::E)){
+			player.setPosition(-884.039,player.getPosition().y);		
+		}
+	}
 
 	path1.draw(window);
 	path2.draw(window);
@@ -296,19 +322,17 @@ int main(){
 	path28.draw(window);
 	path29.draw(window);
 
- 
-	fence1.draw(window);	
-	fence2.draw(window);
-	fence3.draw(window);
-	fence4.draw(window);
-	fence5.draw(window);
-	fence6.draw(window);
-	fence7.draw(window);
-	fence8.draw(window);
-	fence9.draw(window);
-	fence10.draw(window);	
-
 	
+
+
+	window.draw(fenceFarm);
+
+	//draw grass
+	grass1.draw(window);
+
+	//draw tree
+	tree1.draw(window);
+
 	window.draw(player);
 	
 		if(player.getGlobalBounds().intersects(house.intersec())){
