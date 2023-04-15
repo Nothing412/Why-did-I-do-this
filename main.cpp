@@ -5,6 +5,8 @@
 #include<vector>
 #include<fstream>
 #include<string>
+#include<cstdlib>
+#include<time.h>
 #include"playerData.h"
 #include"vars.hpp"
 #include"house.h"
@@ -14,8 +16,7 @@
 using namespace sf;
 using namespace std;
 
-//if time is = 	day =< 300000 milliseconds
-// 10  == 600000
+
 int main(){
 	RenderWindow window(VideoMode(800,800),"Cat woodcutter", Style::Fullscreen);
 	window.setFramerateLimit(60);
@@ -28,13 +29,16 @@ int main(){
 
 	window.setIcon(icon.getSize().x,icon.getSize().y,icon.getPixelsPtr());	
 
+	bool is_day = true;
 	Sprite player;
 	Texture playerTexture;	
-	bool is_day = true;
+	//bool is_day = true;
 
 	if(!playerTexture.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png")){
 		cout << "Axe textureure failure";
 	}
+	
+
 
 	Texture playerTextureAxe;
 	if(!playerTextureAxe.loadFromFile("Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png")){
@@ -135,10 +139,83 @@ int main(){
 			}
 		}
 
+	//UPDATE
+
 
 	//noiii
 	//lkkll;
-	//poopo
+	const time_t now = time(nullptr) ; // get the current time point
+
+    const tm calendar_time = *localtime( addressof(now) ) ;
+	auto chewie = calendar_time.tm_min;
+	
+	int chip[] = {
+		0,5,10,15,20,
+		25,30,35,40,
+		45,50,55,60
+	};
+
+	//13
+	//1
+	if(chewie == chip[0]){
+		is_day = false;
+	}
+	//2
+	else if(chewie == chip[1]){
+		is_day = false;
+	}
+	//3
+	else if(chewie == chip[2]){
+		is_day = false;
+	}
+	//3
+	else if(chewie == chip[3]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[4]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[5]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[6]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[7]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[8]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[9]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[10]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[11]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[12]){
+		is_day = false;
+	}
+
+	else if(chewie == chip[13]){
+		is_day = false;
+	}
+	else{
+		is_day = true;
+	}
+
 		dt = clock.restart().asSeconds();  
 		mousePos = Mouse::getPosition(window);
 
@@ -182,8 +259,11 @@ int main(){
 
 
 	view.setCenter(Vector2f(player.getPosition().x +10,player.getPosition().y - 10));
-	window.clear(Color::Cyan);
+	if(is_day == true)
+		window.clear(Color::Cyan);
 
+	else if(is_day == false)
+		window.clear(Color{2, 1, 28,255});
 	window.setView(view);
 	//window.draw(path1);
 	//window.draw(house);

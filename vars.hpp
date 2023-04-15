@@ -3,8 +3,8 @@
 #include<SFML/Graphics.hpp>
 #include<SFML/Window.hpp>
 #include<SFML/System.hpp>
-#include <fstream>
-#include <string>
+#include<fstream>
+#include<string>
 using namespace sf;
 using namespace std;
 
