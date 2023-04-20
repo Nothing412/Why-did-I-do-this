@@ -41,7 +41,7 @@ public:
 
 house::house(Vector2f p_position, RenderWindow &window){
     position = p_position;
-    if(!houseTextureMap.loadFromFile("Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House 2.png")){
+    if(!houseTextureMap.loadFromFile("../Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House 2.png")){
         cout << "Sussy baka\n";
     }
     house69.setTexture(houseTextureMap);

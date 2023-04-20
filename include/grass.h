@@ -14,13 +14,14 @@ public:
     Texture texture69;
     IntRect intRect69;
     void draw(RenderWindow &window);
+    //bool canDraw = true;
 };
 
 Grass::Grass(Vector2f p_position,int type){
     switch (type)
     {
     case 1:
-        if(!texture69.loadFromFile("Sprout Lands - Sprites - Basic pack/Objects/Grass.png")){
+        if(!texture69.loadFromFile("../Sprout Lands - Sprites - Basic pack/Objects/Grass.png")){
             cout << "error loading grass";
         }    
         intRect69 = IntRect(0,0,17,17);
