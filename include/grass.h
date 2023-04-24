@@ -18,8 +18,7 @@ public:
 };
 
 Grass::Grass(Vector2f p_position,int type){
-    switch (type)
-    {
+    switch (type){
     case 1:
         if(!texture69.loadFromFile("../Sprout Lands - Sprites - Basic pack/Objects/Grass.png")){
             cout << "error loading grass";
