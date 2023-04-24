@@ -342,9 +342,68 @@ int main(){
 	obstacle path44(5);
 
 	Grass grass1(Vector2f(-1280,800),1);
+	Grass grass2(Vector2f(-1380,800),1);
+	Grass grass3(Vector2f(-1480,800),1);
+	Grass grass4(Vector2f(-1580,800),1);
+	Grass grass5(Vector2f(-1680,800),1);
+	Grass grass6(Vector2f(-1780,800),1);
+	Grass grass7(Vector2f(-1880,800),1);
+	Grass grass8(Vector2f(-1980,800),1);
+	Grass grass9(Vector2f(-1980,800),1);
+	///22
+	Grass grass10(Vector2f(-1280,900),2);
+	Grass grass11(Vector2f(-1380,900),1);
+	Grass grass12(Vector2f(-1480,900),1);
+	Grass grass13(Vector2f(-1580,900),1);
+	Grass grass14(Vector2f(-1680,900),1);
+	Grass grass15(Vector2f(-1780,900),1);
+	Grass grass16(Vector2f(-1880,900),1);
+	Grass grass17(Vector2f(-1980,900),1);
+	//,,.,
+	Grass grass18(Vector2f(-1280,1000),1);
+	Grass grass19(Vector2f(-1380,1000),1);
+	Grass grass20(Vector2f(-1480,1000),1);
+	Grass grass21(Vector2f(-1580,1000),1);
+	Grass grass22(Vector2f(-1680,1000),1);
+	Grass grass23(Vector2f(-1780,1000),1);
+	Grass grass24(Vector2f(-1880,1000),1);
+	Grass grass25(Vector2f(-1980,1000),1);
+	//sax
+	Grass grass26(Vector2f(-1280,1100),1);
+	Grass grass27(Vector2f(-1380,1100),1);
+	Grass grass28(Vector2f(-1480,1100),1);
+	Grass grass29(Vector2f(-1580,1100),1);
+	Grass grass30(Vector2f(-1680,1100),1);
+	Grass grass31(Vector2f(-1780,1100),1);
+	Grass grass32(Vector2f(-1880,1100),1);
+	Grass grass33(Vector2f(-1980,1100),1);
 	//polly
-	
+	Grass grass34(Vector2f(-1280,1200),1);
+	Grass grass35(Vector2f(-1380,1200),1);
+	Grass grass36(Vector2f(-1480,1200),1);
+	Grass grass37(Vector2f(-1580,1200),1);
+	Grass grass38(Vector2f(-1680,1200),1);
+	Grass grass39(Vector2f(-1780,1200),1);
+	Grass grass40(Vector2f(-1880,1200),1);
+	Grass grass41(Vector2f(-1980,1200),1);
 
+	Grass grass42(Vector2f(-1280,1300),1);
+	Grass grass43(Vector2f(-1380,1300),1);
+	Grass grass44(Vector2f(-1480,1300),1);
+	Grass grass45(Vector2f(-1580,1300),1);
+	Grass grass46(Vector2f(-1680,1300),1);
+	Grass grass47(Vector2f(-1780,1300),1);
+	Grass grass48(Vector2f(-1880,1300),1);
+	Grass grass49(Vector2f(-1980,1300),1);
+
+	Grass grass50(Vector2f(-1280,1400),1);
+	Grass grass51(Vector2f(-1380,1400),1);
+	Grass grass52(Vector2f(-1480,1400),1);
+	Grass grass53(Vector2f(-1580,1400),1);
+	Grass grass54(Vector2f(-1680,1400),1);
+	Grass grass55(Vector2f(-1780,1400),1);
+	Grass grass56(Vector2f(-1880,1400),1);
+	Grass grass57(Vector2f(-1980,1400),1);
 
 
 	path1.draw(window,Vector2f(-220,590));
@@ -489,11 +548,83 @@ int main(){
 	}
 
 	
-	window.draw(fenceFarm);
+
 
 	//draw grass
 	grass1.draw(window);
+	grass2.draw(window);
+	grass3.draw(window);
+	grass4.draw(window);
+	grass5.draw(window);
+	grass6.draw(window);
+	grass7.draw(window);
+	grass8.draw(window);
+	grass9.draw(window);
+	grass10.draw(window);
+	grass11.draw(window);
+	grass12.draw(window);
+	grass13.draw(window);
+	grass14.draw(window);
+	grass15.draw(window);
+	grass16.draw(window);
+	grass17.draw(window);
+	grass18.draw(window);
+	grass19.draw(window);
+	grass20.draw(window);
+	grass21.draw(window);
+	grass22.draw(window);
+	grass23.draw(window);
+	grass24.draw(window);
+	grass25.draw(window);
 
+	grass26.draw(window);
+	grass27.draw(window);
+	grass28.draw(window);
+	grass29.draw(window);
+	grass30.draw(window);
+	grass31.draw(window);
+	grass32.draw(window);
+	grass33.draw(window);
+
+	//S
+	grass26.draw(window);
+	grass27.draw(window);
+	grass28.draw(window);
+	grass29.draw(window);
+	grass30.draw(window);
+	grass31.draw(window);
+	grass32.draw(window);
+	grass33.draw(window);
+	//ss/sqasa
+	grass32.draw(window);
+	grass33.draw(window);
+	grass34.draw(window);
+	grass35.draw(window);
+	grass36.draw(window);
+	grass37.draw(window);
+	grass38.draw(window);
+	grass39.draw(window);
+
+	grass40.draw(window);
+	grass41.draw(window);
+	grass42.draw(window);
+	grass43.draw(window);
+	grass44.draw(window);
+	grass45.draw(window);
+	grass46.draw(window);
+	grass47.draw(window);
+	grass48.draw(window);
+	grass49.draw(window);
+
+	grass50.draw(window);
+	grass51.draw(window);
+	grass52.draw(window);
+	grass53.draw(window);
+	grass54.draw(window);
+	grass55.draw(window);
+	grass56.draw(window);
+	grass57.draw(window);
+	
 	//draw tree
 
 
@@ -504,6 +635,8 @@ int main(){
 	tree2.draw(window);
 	tree3.draw(window);
 	tree4.draw(window);
+
+	window.draw(fenceFarm);
 
 	window.draw(player);
 
