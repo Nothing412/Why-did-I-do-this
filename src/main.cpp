@@ -7,6 +7,7 @@
 #include<string>
 #include<cstdlib>
 #include<time.h>
+#include<bits/stdc++.h>
 #include"obstacles.h"
 #include"house.h"
 #include"tree.h"
@@ -114,6 +115,12 @@ int main(){
 	
 	Vector2f playerPosition = Vector2f(x,y);
 	player.setPosition(playerPosition);
+
+	Tree tree1(Vector2f(-1300,800));
+	Tree tree2(Vector2f(-1500,800));
+	Tree tree3(Vector2f(-1700,800));
+	Tree tree4(Vector2f(-1900,800));
+
 	////////////////////////////////////////////////////////////////
 	//here here here here here here here here here here here here //
 	//here here here here here here here here here here here here //
@@ -336,8 +343,7 @@ int main(){
 
 	Grass grass1(Vector2f(-1280,800),1);
 	//polly
-	Tree tree1(Vector2f(-1300,800));
-	tree1.treeSetDeafult();
+	
 
 
 
@@ -395,6 +401,7 @@ int main(){
 	path43.draw(window,Vector2f(-100,1050));
 	path44.draw(window,Vector2f(-200,1050));
 
+
 	if(player.getGlobalBounds().intersects(fenceFarm.getGlobalBounds())){
 		
 		if(player.getPosition().x>=-1182){
@@ -418,7 +425,70 @@ int main(){
 	}
 	
 
+	if(player.getGlobalBounds().intersects(tree1.intersec())){
+		tree1.time++;
+		if(is_hit){
+			tree1.time++;
+			if(tree1.time <= 400){
+				tree1.treeMidbreak();
+				tree1.deleteKindOf();
+			}
+		}
 
+		if(tree1.time == 0){
+			tree1.treeSetDeafult();
+		}
+	}
+
+	//tree2
+	if(player.getGlobalBounds().intersects(tree2.intersec())){
+		tree2.time++;
+		if(is_hit){
+			tree2.time++;
+			if(tree2.time <= 400){
+				tree2.treeMidbreak();
+				tree2.deleteKindOf();
+			}
+		}
+
+		if(tree2.time == 0){
+			tree2.treeSetDeafult();
+		}
+	}
+
+	//tree3
+	if(player.getGlobalBounds().intersects(tree3.intersec())){
+		tree3.time++;
+		if(is_hit){
+			tree3.time++;
+			if(tree3.time <= 400){
+				tree3.treeMidbreak();
+				tree3.deleteKindOf();
+			}
+		}
+
+		if(tree3.time == 0){
+			tree3.treeSetDeafult();
+		}
+	}
+
+	//tree4
+	if(player.getGlobalBounds().intersects(tree4.intersec())){
+		tree4.time++;
+		if(is_hit){
+			tree4.time++;
+			if(tree4.time <= 400){
+				tree4.treeMidbreak();
+				tree4.deleteKindOf();
+			}
+		}
+
+		if(tree4.time == 0){
+			tree4.treeSetDeafult();
+		}
+	}
+
+	
 	window.draw(fenceFarm);
 
 	//draw grass
@@ -426,38 +496,14 @@ int main(){
 
 	//draw tree
 
-	/*if(player.getGlobalBounds().intersects(tree1.intersec())){
-		if(is_hit == true){
-			tree1.time++;
-			
-
-		}
-	}*/
-
-	/*if(tree1.canDraw == true){
-		tree1.draw(window);
-	}*/
 
 	//tree1.draw(window);
 
-	if(player.getGlobalBounds().intersects(tree1.intersec())){
-		if(is_hit == true){
-			tree1.time++;
-			if(tree1.time >=116){
-				tree1.treeMidbreak();
-			}
-
-			else if(tree1.time >=232){
-				tree1.treeAlomstBreak();
-			}
-
-			else if (tree1.time >= 350){
-				tree1.tree.clear();	
-			}
-		}
-	}
 
 	tree1.draw(window);
+	tree2.draw(window);
+	tree3.draw(window);
+	tree4.draw(window);
 
 	window.draw(player);
 
@@ -466,28 +512,28 @@ int main(){
 
 	//window.draw(dayText);
 	
-		if(player.getGlobalBounds().intersects(house.intersec())){
-			if(player.getPosition().y >= 50){
-				player.setPosition(player.getPosition().x,50);
-			}
-
-			else if(player.getPosition().y <= -200){
-				player.setPosition(player.getPosition().x,-200);
-			}
-
-			else if(player.getPosition().x >= 20){
-				player.setPosition(Vector2f(20,player.getPosition().y));
-			}
-
-			else if(player.getPosition().x <= -350){
-				player.setPosition(Vector2f(-350,player.getPosition().y));
-			}	
-
-			if(Keyboard::isKeyPressed(Keyboard::E)){
-				player.setPosition(player.getPosition().x,680);
-			}
-
+	if(player.getGlobalBounds().intersects(house.intersec())){
+		if(player.getPosition().y >= 50){
+			player.setPosition(player.getPosition().x,50);
 		}
+
+		else if(player.getPosition().y <= -200){
+			player.setPosition(player.getPosition().x,-200);
+		}
+
+		else if(player.getPosition().x >= 20){
+			player.setPosition(Vector2f(20,player.getPosition().y));
+		}
+
+		else if(player.getPosition().x <= -350){
+			player.setPosition(Vector2f(-350,player.getPosition().y));
+		}	
+
+		if(Keyboard::isKeyPressed(Keyboard::E)){
+			player.setPosition(player.getPosition().x,680);
+		}
+
+	}
 		window.display();
 	}
 	return 0;	
