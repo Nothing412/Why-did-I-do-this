@@ -4,7 +4,8 @@
             "name": "windows-gcc-x64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/debug"
             ],
             "defines": [
                 "_DEBUG",

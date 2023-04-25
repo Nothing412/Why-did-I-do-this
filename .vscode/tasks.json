@@ -10,7 +10,7 @@
                 "${file}",
                 "-I${workspaceFolder}/include",
                 "-o",
-                "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
+                "${workspaceFolder}/debug/${fileBasenameNoExtension}.exe",
                 "-lsfml-graphics",
                 "-lsfml-window",
                 "-lsfml-system",
