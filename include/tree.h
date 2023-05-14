@@ -22,6 +22,7 @@ public:
     FloatRect intersec(){
         return tree69.getGlobalBounds();
     }
+    void Breaking(Sprite& player,bool is_hit);
 };
 
 Tree::Tree(Vector2f p_position){
@@ -60,4 +61,21 @@ void Tree::deleteKindOf(){
 
 void Tree::show(){
     tree69.setColor(Color::White);
+}
+
+void Tree::Breaking(Sprite& player,bool is_hit){
+    if(player.getGlobalBounds().intersects(tree69.getGlobalBounds())){
+		time++;
+		if(is_hit){
+			time++;
+			if(time <= 400){
+				treeMidbreak();
+				deleteKindOf();
+			}
+		}
+
+		if(time == 0){
+			treeSetDeafult();
+		}
+	}
 }

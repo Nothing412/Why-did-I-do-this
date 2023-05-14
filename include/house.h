@@ -17,6 +17,7 @@ public:
     IntRect sass;
     float angel;
     bool is_inside = true;
+    void checkCollision(Sprite& player);
     bool if_inside(){
         return is_inside;
     }
@@ -56,3 +57,27 @@ house::house(Vector2f p_position, RenderWindow &window){
     }
 }
 
+void house::checkCollision(Sprite& player){
+    if(player.getGlobalBounds().intersects(house69.getGlobalBounds())){
+		if(player.getPosition().y >= 50){
+			player.setPosition(player.getPosition().x,50);
+		}
+
+		else if(player.getPosition().y <= -200){
+			player.setPosition(player.getPosition().x,-200);
+		}
+
+		else if(player.getPosition().x >= 20){
+			player.setPosition(Vector2f(20,player.getPosition().y));
+		}
+
+		else if(player.getPosition().x <= -350){
+			player.setPosition(Vector2f(-350,player.getPosition().y));
+		}	
+
+		if(Keyboard::isKeyPressed(Keyboard::E)){
+			player.setPosition(player.getPosition().x,680);
+		}
+
+	}
+}

@@ -11,7 +11,9 @@
 #include"obstacles.h"
 #include"house.h"
 #include"tree.h"
+#include"FenceUpdate.h"
 #include"grass.h"
+#include"playerUpdate.h"
 using namespace sf;
 using namespace std;
 
@@ -131,6 +133,11 @@ int main(){
 	Tree tree3(Vector2f(-1700,800));
 	Tree tree4(Vector2f(-1900,800));
 
+	Tree tree5(Vector2f(-1300,1200));
+	Tree tree6(Vector2f(-1500,1200));
+	Tree tree7(Vector2f(-1700,1200));
+	Tree tree8(Vector2f(-1900,1210));
+
 	////////////////////////////////////////////////////////////////
 	//here here here here here here here here here here here here //
 	//here here here here here here here here here here here here //
@@ -249,44 +256,10 @@ int main(){
 	else if(is_day == false){
 		dayText.setFillColor(Color::White);
 	}
-		dt = clock.restart().asSeconds();  
-		mousePos = Mouse::getPosition(window);
+	dt = clock.restart().asSeconds();  
+	mousePos = Mouse::getPosition(window);
 
-		if (Keyboard::isKeyPressed(Keyboard::A)) {
-			player.move(-500 * dt, 0);
-			player.setTexture(playerTexture);
-			player.setTextureRect(IntRect(10, 106,ss, 30));
-		}
-
-		else if (Keyboard::isKeyPressed(Keyboard::D)){
-			player.move(500 * dt, 0);
-			player.setTexture(playerTexture);
-			player.setTextureRect(IntRect(10, 154, ss, 30));
-		}
-
-		else if (Keyboard::isKeyPressed(Keyboard::W)){
-			player.move(0, -500 * dt);
-			player.setTexture(playerTexture);
-			player.setTextureRect(IntRect(10, 57, ss, 30));
-		}
-
-		else if (Keyboard::isKeyPressed(Keyboard::S)){
-			player.move(0, 500 * dt);
-			player.setTexture(playerTexture);
-
-		}
-
-		else if(Mouse::isButtonPressed(Mouse::Left)){
-			player.setTexture(playerTextureAxe);
-			player.setTextureRect(IntRect(10,251,30,30));
-			is_hit = true;
-		}
-
-		else{
-			player.setTexture(playerTexture);
-			player.setTextureRect(IntRect(10, 10, ss, 30));	
-			is_hit = false;
-		}
+	playerUpdate(player,dt,playerTexture,playerTextureAxe,ss,is_hit);
 
 	view.setCenter(Vector2f(player.getPosition().x +10,player.getPosition().y - 10));
 	if(is_day == true)
@@ -298,202 +271,186 @@ int main(){
 
 	house house(Vector2f(-460 + 26,-439 + 70),window);
 	
-	obstacle path1(4);
-	obstacle path2(6);
-	obstacle path3(5);
-	//2
-	obstacle path4(4);
-	obstacle path5(6);
-	obstacle path6(5);
-	//3
-	obstacle path7(4);
-	obstacle path8(6);
-	obstacle path9(5);
-	//4
-	obstacle path10(4);
-	obstacle path11(6);
-	obstacle path12(5);
+// 	obstacle path1(4);
+// 	obstacle path2(6);
+// 	obstacle path3(5);
+// 	//2
+// 	obstacle path4(4);
+// 	obstacle path5(6);
+// 	obstacle path6(5);
+// 	//3
+// 	obstacle path7(4);
+// 	obstacle path8(6);
+// 	obstacle path9(5);
+// 	//4
+// 	obstacle path10(4);
+// 	obstacle path11(6);
+// 	obstacle path12(5);
 
-	obstacle path13(9);//path13.setRotation(90);
-	obstacle path14(2);	
-	obstacle path15(2);
-	obstacle path16(2);
-	obstacle path17(2);	
-	obstacle path18(2);	
-	obstacle path19(2);	
-	obstacle path20(2);	
+// 	obstacle path13(9);//path13.setRotation(90);
+// 	obstacle path14(2);	
+// 	obstacle path15(2);
+// 	obstacle path16(2);
+// 	obstacle path17(2);	
+// 	obstacle path18(2);	
+// 	obstacle path19(2);	
+// 	obstacle path20(2);	
 
-	obstacle path21(8);
-	obstacle path22(8);	
-	obstacle path23(8);
-	obstacle path24(8);
-	obstacle path25(8);	
-	obstacle path26(8);	
-	obstacle path27(8);	
-	obstacle path28(8);
-	obstacle path29(8);
-	obstacle path30(8);
-	obstacle path31(8);
+// 	obstacle path21(8);
+// 	obstacle path22(8);	
+// 	obstacle path23(8);
+// 	obstacle path24(8);
+// 	obstacle path25(8);	
+// 	obstacle path26(8);	
+// 	obstacle path27(8);	
+// 	obstacle path28(8);
+// 	obstacle path29(8);
+// 	obstacle path30(8);
+// 	obstacle path31(8);
 
-	obstacle path32(6);
-	obstacle path33(6);
+// 	obstacle path32(6);
+// 	obstacle path33(6);
 
-	obstacle path34(5);
-	obstacle path35(5);
-	obstacle path36(5);
-	obstacle path37(5);
-	obstacle path38(5);
-	obstacle path39(5);
-	obstacle path40(5);
+// 	obstacle path34(5);
+// 	obstacle path35(5);
+// 	obstacle path36(5);
+// 	obstacle path37(5);
+// 	obstacle path38(5);
+// 	obstacle path39(5);
+// 	obstacle path40(5);
 
-	obstacle path41(5);
-	obstacle path42(5);
-	obstacle path43(5);
-	obstacle path44(5);
+// 	obstacle path41(5);
+// 	obstacle path42(5);
+// 	obstacle path43(5);
+// 	obstacle path44(5);	
+
+// //34
+// 	obstacle path45(4);
+// 	obstacle path46(5);
+// 	obstacle path47(6);
+// 	//2
+// 	obstacle path48(4);
+// 	obstacle path49(5);
+// 	obstacle path50(6);
+
+// //3
+// 	obstacle path45(4);
+// 	obstacle path46(5);
+// 	obstacle path47(6);
+
+// //4
+// 	obstacle path45(4);
+// 	obstacle path46(5);
+// 	obstacle path47(6);
+
+// //5
+// 	obstacle path45(4);
+// 	obstacle path46(5);
+// 	obstacle path47(6);
+
+// //6
+// 	obstacle path45(4);
+// 	obstacle path46(5);
+// 	obstacle path47(6);
+
+// //7
+// 	obstacle path45(4);
+// 	obstacle path46(5);
+// 	obstacle path47(6);
+
+// //8
+// 	obstacle path45(4);
+// 	obstacle path46(5);
+// 	obstacle path47(6);
+
+// 	path1.draw(window,Vector2f(-220,590));
+// 	path2.draw(window,Vector2f(0,590));
+// 	path3.draw(window,Vector2f(-100,590));
+// 	//2
+// 	path4.draw(window,Vector2f(-220,690));
+// 	path5.draw(window,Vector2f(0,690));
+// 	path6.draw(window,Vector2f(-100,690));
+// 	//3
+// 	path7.draw(window,Vector2f(-220,790));
+// 	path8.draw(window,Vector2f(0,790));
+// 	path9.draw(window,Vector2f(-100,790));
+// 	//4
+// 	path10.draw(window,Vector2f(-220,890));
+// 	path11.draw(window,Vector2f(0,890));
+// 	path12.draw(window,Vector2f(-100,890));
 
 
-
-	path1.draw(window,Vector2f(-220,590));
-	path2.draw(window,Vector2f(0,590));
-	path3.draw(window,Vector2f(-100,590));
-	//2
-	path4.draw(window,Vector2f(-220,690));
-	path5.draw(window,Vector2f(0,690));
-	path6.draw(window,Vector2f(-100,690));
-	//3
-	path7.draw(window,Vector2f(-220,790));
-	path8.draw(window,Vector2f(0,790));
-	path9.draw(window,Vector2f(-100,790));
-	//4
-	path10.draw(window,Vector2f(-220,890));
-	path11.draw(window,Vector2f(0,890));
-	path12.draw(window,Vector2f(-100,890));
-
-
-	path13.draw(window,Vector2f(0,1240));
-	path14.draw(window,Vector2f(-350,1040));
-	path15.draw(window,Vector2f(-450,1040));
-	path16.draw(window,Vector2f(-550,1040));
-	path17.draw(window,Vector2f(-650,1040));
-	path18.draw(window,Vector2f(-750,1040));
-	path19.draw(window,Vector2f(-850,1040));
-	path20.draw(window,Vector2f(-950,1040));
+// 	path13.draw(window,Vector2f(0,1240));
+// 	path14.draw(window,Vector2f(-350,1040));
+// 	path15.draw(window,Vector2f(-450,1040));
+// 	path16.draw(window,Vector2f(-550,1040));
+// 	path17.draw(window,Vector2f(-650,1040));
+// 	path18.draw(window,Vector2f(-750,1040));
+// 	path19.draw(window,Vector2f(-850,1040));
+// 	path20.draw(window,Vector2f(-950,1040));
 	
-	path21.draw(window,Vector2f(-1000,1240));
-	path22.draw(window,Vector2f(-980,1240));
-	path23.draw(window,Vector2f(-380,1240));
-	path24.draw(window,Vector2f(-480,1240));
-	path25.draw(window,Vector2f(-580,1240));
-	path26.draw(window,Vector2f(-680,1240));
-	path27.draw(window,Vector2f(-780,1240));
-	path28.draw(window,Vector2f(-880,1240));
-	path29.draw(window,Vector2f(-280,1240));
-	path30.draw(window,Vector2f(-180,1240));	
-	path31.draw(window,Vector2f(-157,1240));
+// 	path21.draw(window,Vector2f(-1000,1240));
+// 	path22.draw(window,Vector2f(-980,1240));
+// 	path23.draw(window,Vector2f(-380,1240));
+// 	path24.draw(window,Vector2f(-480,1240));
+// 	path25.draw(window,Vector2f(-580,1240));
+// 	path26.draw(window,Vector2f(-680,1240));
+// 	path27.draw(window,Vector2f(-780,1240));
+// 	path28.draw(window,Vector2f(-880,1240));
+// 	path29.draw(window,Vector2f(-280,1240));
+// 	path30.draw(window,Vector2f(-180,1240));	
+// 	path31.draw(window,Vector2f(-157,1240));
 
-	path32.draw(window,Vector2f(0,1050));
-	path33.draw(window,Vector2f(0,1080));
+// 	path32.draw(window,Vector2f(0,1050));
+// 	path33.draw(window,Vector2f(0,1080));
 
-	path34.draw(window,Vector2f(-350,1080));
-	path35.draw(window,Vector2f(-450,1080));
-	path36.draw(window,Vector2f(-550,1080));
-	path37.draw(window,Vector2f(-650,1080));
-	path38.draw(window,Vector2f(-750,1080));
-	path39.draw(window,Vector2f(-850,1080));
-	path40.draw(window,Vector2f(-950,1080));
+// 	path34.draw(window,Vector2f(-350,1080));
+// 	path35.draw(window,Vector2f(-450,1080));
+// 	path36.draw(window,Vector2f(-550,1080));
+// 	path37.draw(window,Vector2f(-650,1080));
+// 	path38.draw(window,Vector2f(-750,1080));
+// 	path39.draw(window,Vector2f(-850,1080));
+// 	path40.draw(window,Vector2f(-950,1080));
 
-	path41.draw(window,Vector2f(-100,1080));
-	path42.draw(window,Vector2f(-200,1080));
-	path43.draw(window,Vector2f(-100,1050));
-	path44.draw(window,Vector2f(-200,1050));
+// 	path41.draw(window,Vector2f(-100,1080));
+// 	path42.draw(window,Vector2f(-200,1080));
+// 	path43.draw(window,Vector2f(-100,1050));
+// 	path44.draw(window,Vector2f(-200,1050));
 
+// 	path45.draw(window,Vector2f(-1800,410));
+// 	path46.draw(window,Vector2f(-1680,410));
+// 	path47.draw(window,Vector2f(-1520,410));
 
-	if(player.getGlobalBounds().intersects(fenceFarm.getGlobalBounds())){
-		
-		if(player.getPosition().x>=-1182){
-			player.setPosition(-1181,player.getPosition().y);
-		}
+	FenceUpdate(fenceFarm,player);
 
-		if(player.getPosition().x<=-2029.84){
-			player.setPosition(-2028,player.getPosition().y);
-		}
-		if(player.getPosition().y<=625.975){
-			player.setPosition(player.getPosition().x,624);
-		}
-
-		if(player.getPosition().y>=1294.72){
-			player.setPosition(player.getPosition().x,1295);
-		}
-
-		if(Keyboard::isKeyPressed(Keyboard::E)){
-			player.setPosition(-884.039,player.getPosition().y);		
-		}
-	}
-	
-
-	if(player.getGlobalBounds().intersects(tree1.intersec())){
-		tree1.time++;
-		if(is_hit){
-			tree1.time++;
-			if(tree1.time <= 400){
-				tree1.treeMidbreak();
-				tree1.deleteKindOf();
-			}
-		}
-
-		if(tree1.time == 0){
-			tree1.treeSetDeafult();
-		}
-	}
+	tree1.Breaking(player,is_hit);
 
 	//tree2
-	if(player.getGlobalBounds().intersects(tree2.intersec())){
-		tree2.time++;
-		if(is_hit){
-			tree2.time++;
-			if(tree2.time <= 400){
-				tree2.treeMidbreak();
-				tree2.deleteKindOf();
-			}
-		}
 
-		if(tree2.time == 0){
-			tree2.treeSetDeafult();
-		}
-	}
-
+	tree2.Breaking(player,is_hit);
 	//tree3
-	if(player.getGlobalBounds().intersects(tree3.intersec())){
-		tree3.time++;
-		if(is_hit){
-			tree3.time++;
-			if(tree3.time <= 400){
-				tree3.treeMidbreak();
-				tree3.deleteKindOf();
-			}
-		}
 
-		if(tree3.time == 0){
-			tree3.treeSetDeafult();
-		}
-	}
+	tree3.Breaking(player,is_hit);
 
 	//tree4
-	if(player.getGlobalBounds().intersects(tree4.intersec())){
-		tree4.time++;
-		if(is_hit){
-			tree4.time++;
-			if(tree4.time <= 400){
-				tree4.treeMidbreak();
-				tree4.deleteKindOf();
-			}
-		}
 
-		if(tree4.time == 0){
-			tree4.treeSetDeafult();
-		}
-	}
+	tree4.Breaking(player,is_hit);
 
+	//5
+
+	tree5.Breaking(player,is_hit);
+
+	//tree6
+	
+	tree6.Breaking(player,is_hit);
+
+	//tree7
+
+	tree7.Breaking(player,is_hit);
+
+	//tree8
+
+	tree8.Breaking(player,is_hit);
 
 
 	window.draw(grass);
@@ -501,6 +458,10 @@ int main(){
 	tree2.draw(window);
 	tree3.draw(window);
 	tree4.draw(window);
+	tree5.draw(window);
+	tree6.draw(window);
+	tree7.draw(window);
+	tree8.draw(window);
 	window.draw(fenceFarm);
 
 	window.draw(player);
@@ -509,29 +470,9 @@ int main(){
 
 
 	//window.draw(dayText);
+
+		house.checkCollision(player);
 	
-	if(player.getGlobalBounds().intersects(house.intersec())){
-		if(player.getPosition().y >= 50){
-			player.setPosition(player.getPosition().x,50);
-		}
-
-		else if(player.getPosition().y <= -200){
-			player.setPosition(player.getPosition().x,-200);
-		}
-
-		else if(player.getPosition().x >= 20){
-			player.setPosition(Vector2f(20,player.getPosition().y));
-		}
-
-		else if(player.getPosition().x <= -350){
-			player.setPosition(Vector2f(-350,player.getPosition().y));
-		}	
-
-		if(Keyboard::isKeyPressed(Keyboard::E)){
-			player.setPosition(player.getPosition().x,680);
-		}
-
-	}
 		window.display();
 	}
 	return 0;	
